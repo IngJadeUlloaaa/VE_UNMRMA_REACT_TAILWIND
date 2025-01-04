@@ -5,7 +5,7 @@ import '../index.css'
 import { FaUser, FaLock } from 'react-icons/fa';
 import LayerUp from '../assets/images/layer_up.webp'
 import LayerDown from '../assets/images/layer_down.webp'
-import Toggle from '../components/toggle';
+import Toggle from '../components/Toggle';
 import { useNavigate } from 'react-router-dom'; // here
 
 function Login() {
