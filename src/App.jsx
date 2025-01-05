@@ -11,7 +11,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="login" element={<Login />} />
-          <Route path="virtual_environment" element={<VirtualEnvironment />} />
+          <Route path="virtual_environment" element={<VirtualEnvironment/>} />
           {/* <Route path="*" element={<NoPage />} /> */}
         </Routes>
       </BrowserRouter>

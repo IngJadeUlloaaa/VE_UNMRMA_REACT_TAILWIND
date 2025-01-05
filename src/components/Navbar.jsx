@@ -12,8 +12,7 @@ function Navbar({ activeView, setActiveView }) {
 
   return (
     <>
-      {/* Botón para abrir/cerrar el menú (visible solo en pantallas pequeñas) */}
-      <div className="md:hidden fixed top-4 left-4 z-50">
+      <div className="md:hidden fixed top-4 left-4 z-[100]">
         <button
           onClick={toggleMenu}
           className="text-white bg-app-blueColor p-2 rounded-full focus:outline-none shadow-lg"
@@ -22,9 +21,9 @@ function Navbar({ activeView, setActiveView }) {
         </button>
       </div>
 
-      <nav className={`w-[14%] h-screen sm:w-[50%] md:w-[14%] bg-app-blueColor flex flex-col z-40 transform transition-transform duration-300 ${
+      <nav className={`absolute w-[250px] h-screen bg-app-blueColor flex flex-col z-50 transform transition-transform duration-300 ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
-        } md:translate-x-0`}>
+        } md:translate-x-0 md:static md:w-auto`}>
         <div className='w-full'>
           <img className='w-full bg-no-repeat bg-cover' src={UNMShield} alt="unm-shield" />
         </div>

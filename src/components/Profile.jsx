@@ -15,7 +15,7 @@ function Profile() {
 
   return (
     <>
-      <section className="w-[86%] h-screen flex flex-col">
+      <section className="h-screen flex flex-col">
         {!visible ? (
           <>
             <div className="w-full h-[10%] flex items-center justify-center">
