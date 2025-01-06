@@ -3,7 +3,7 @@ import React from 'react'
 function Input({ data, api_data }) {
   return (
     <>
-      <div className='w-3/5 h-auto my-2'>
+      <div className='w-3/4 h-auto my-2'>
         <p className='w-full h-auto'>
           <span className='text-start text-app-grayColor dark:text-app-whiteColor font-sans text-sm font-semibold'>{data}</span>
         </p>

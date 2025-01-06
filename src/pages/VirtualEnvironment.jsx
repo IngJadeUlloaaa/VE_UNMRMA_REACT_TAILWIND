@@ -11,7 +11,7 @@ function VirtualEnvironment() {
   return (
     <>
       <div className='flex'>
-        <div className='max-w-[280px] relative'>
+        <div className='max-w-[250px] relative'>
           <Navbar activeView={activeView} setActiveView={setActiveView} />
         </div>
         <div className='flex-1'>

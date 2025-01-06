@@ -12,7 +12,7 @@ function Navbar({ activeView, setActiveView }) {
 
   return (
     <>
-      <div className="md:hidden fixed top-4 left-4 z-[100]">
+      <div className="md:hidden fixed top-5 left-5 z-[100]">
         <button
           onClick={toggleMenu}
           className="text-white bg-app-blueColor p-2 rounded-full focus:outline-none shadow-lg"
@@ -21,7 +21,7 @@ function Navbar({ activeView, setActiveView }) {
         </button>
       </div>
 
-      <nav className={`absolute w-[250px] h-screen bg-app-blueColor flex flex-col z-50 transform transition-transform duration-300 ${
+      <nav className={`fixed w-[250px] h-dvh bg-app-blueColor flex flex-col z-50 transform transition-transform duration-300 ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         } md:translate-x-0 md:static md:w-auto`}>
         <div className='w-full'>

@@ -18,22 +18,22 @@ function Profile() {
       <section className="h-screen flex flex-col">
         {!visible ? (
           <>
-            <div className="w-full h-[10%] flex items-center justify-center">
+            <div className="w-full h-auto flex items-center justify-center sm:h-[10%]">
               <BoxTitle header="PERFIL" />
             </div>
-            <section className="w-full h-[90%] flex items-center justify-center">
+            <section className="w-full h-auto flex items-center justify-center sm:h-[90%]">
               <article className="w-[90%] h-[90%] flex flex-col items-center justify-center shadow-2xl dark:shadow-2xl dark:shadow-green-900">
                 <div className="w-full h-auto flex">
                   <PrincipalHeader title="Información del Estudiante" img={UNM_Origin} />
                 </div>
                 <div className="w-full h-auto flex flex-col">
-                  <div className="w-full h-auto flex">
-                    <div className="w-2/4 h-auto flex flex-col items-center">
+                  <div className="w-full h-auto flex flex-col sm:flex-row">
+                    <div className="w-full h-auto flex flex-col items-center sm:w-2/4">
                       <Input data="Carrera" api_data="Ingenieria en Sistemas" />
                       <Input data="Cedula" api_data="001-12345-6789A" />
                       <Input data="Telefono" api_data="123456789" />
                     </div>
-                    <div className="w-2/4 h-auto flex flex-col items-center">
+                    <div className="w-full h-auto flex flex-col items-center sm:w-2/4">
                       <Input data="Turno" api_data="Matutino" />
                       <Input data="Nombre Completo" api_data="Chayanne de Pochomil" />
                       <Input data="Correo" api_data="chayanne@unm.edu.ni" />
