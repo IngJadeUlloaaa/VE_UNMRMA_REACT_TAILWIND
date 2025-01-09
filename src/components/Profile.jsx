@@ -15,15 +15,15 @@ function Profile() {
 
   return (
     <>
-      <section className="h-screen flex flex-col">
+      <section className="h-auto flex gap-6 flex-col sm:h-screen sm:gap-0">
         {!visible ? (
           <>
             <div className="w-full h-auto flex items-center justify-center sm:h-[10%]">
               <BoxTitle header="PERFIL" />
             </div>
             <section className="w-full h-auto flex items-center justify-center sm:h-[90%]">
-              <article className="w-[90%] h-[90%] flex flex-col items-center justify-center shadow-2xl dark:shadow-2xl dark:shadow-green-900">
-                <div className="w-full h-auto flex">
+              <article className="w-[90%] h-auto flex flex-col items-center justify-center shadow-2xl dark:shadow-2xl dark:shadow-green-900 sm:h-[90%]">
+                <div className="w-full h-auto my-4 flex sm:my-0">
                   <PrincipalHeader title="Información del Estudiante" img={UNM_Origin} />
                 </div>
                 <div className="w-full h-auto flex flex-col">
@@ -57,8 +57,8 @@ function Profile() {
                   <PrincipalHeader title="Datos Personales" img={UNM_Origin} />
                 </div>
                 <div className="w-full h-[80%] flex flex-col">
-                  <div className="flex-grow w-full flex">
-                    <div className="w-2/4 flex flex-col items-center">
+                  <div className="flex-grow w-full flex flex-col sm:flex-row">
+                    <div className="w-full flex flex-col items-center sm:w-2/4">
                       <InputUpdate description="Primer Nombre" userInformation="lorem ipsum" />
                       <InputUpdate description="Segundo Nombre" userInformation="lorem ipsum" />
                       <InputUpdate description="Celular" userInformation="123456789" />
@@ -68,7 +68,7 @@ function Profile() {
                       <InputUpdate description="Celular" userInformation="123456789" />
                       <InputUpdate description="Compañia Telefónica" userInformation="lorem ipsum" />
                     </div>
-                    <div className="w-2/4 flex flex-col items-center">
+                    <div className="w-full flex flex-col items-center sm:w-2/4">
                       <InputUpdate description="Primer Apellido" userInformation="lorem ipsum" />
                       <InputUpdate description="Segundo Apellido" userInformation="lorem ipsum" />
                       <InputUpdate description="Correo Personal" userInformation="lorem@gmail.com" />
@@ -79,7 +79,7 @@ function Profile() {
                       <InputUpdate description="Fecha de Nacimiento" userInformation="00/00/0000" />
                     </div>
                   </div>
-                  <div className="w-full h-auto flex items-center justify-center gap-2 mt-auto">
+                  <div className="w-full h-auto my-6 flex items-center justify-center gap-4 sm:my-0">
                     <button
                       onClick={toggleContainer}
                       className="bg-red-500 text-white px-4 py-2 rounded-md"
