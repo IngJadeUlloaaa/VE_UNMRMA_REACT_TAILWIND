@@ -17,4 +17,18 @@
     .scrollbar-custom::-webkit-scrollbar-thumb:hover {
         background: #5AB24B;
     }
+    .scrollbar-native::-webkit-scrollbar {
+        width: 1px;
+    }
+    .scrollbar-native::-webkit-scrollbar-track {
+        background: transparent;
+        border-radius: 10px;
+    }
+    .scrollbar-native::-webkit-scrollbar-thumb {
+        background: transparent;
+        border-radius: 10px;
+    }
+    .scrollbar-native::-webkit-scrollbar-thumb:hover {
+        background: transparent;
+    }
 }

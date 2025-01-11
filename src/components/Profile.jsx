@@ -48,63 +48,65 @@ function Profile() {
           </>
         ) : (
           <>
-            <div className="w-full h-[10%]">
-              <BoxTitle header="ACTUALIZAR" />
+            <div className="w-full h-dvh flex flex-col overflow-auto scrollbar-native">
+              <div className="w-full h-auto">
+                <BoxTitle header="ACTUALIZAR" />
+              </div>
+              <section className="w-full h-full flex items-center justify-center">
+                <article className="w-full h-full scrollbar-custom flex flex-col overflow-auto scroll-smooth">
+                  <div className="w-full h-[20%] flex">
+                    <PrincipalHeader title="Datos Personales" img={UNM_Origin} />
+                  </div>
+                  <div className="w-full h-[80%] flex flex-col">
+                    <div className="flex-grow w-full flex flex-col sm:flex-row">
+                      <div className="w-full flex flex-col items-center sm:w-2/4">
+                        <InputUpdate description="Correo" userInformation="lorem@gmail.com" />
+                        <InputUpdate description="Etnia" userInformation="lorem ipsum" />
+                        <InputUpdate description="Fecha de Nacimiento" userInformation="00/00/0000" />
+                        <InputUpdate description="Municipio" userInformation="lorem ipsum" />
+                        <InputUpdate description="Nacionalidad" userInformation="lorem ipsum" />
+                      </div>
+                      <div className="w-full flex flex-col items-center sm:w-2/4">
+                        <InputUpdate description="Nombre Completo" userInformation="lorem ipsum" />
+                        <InputUpdate description="País" userInformation="lorem ipsum" />
+                        <InputUpdate description="Procedencia" userInformation="lorem ipsum" />
+                        <InputUpdate description="Sexo" userInformation="lorem ipsum" />
+                        <InputUpdate description="Teléfono" userInformation="123456789" />
+                      </div>
+                    </div>
+                    <div className="w-full h-auto flex">
+                      <PrincipalHeader title="Datos Estudiantiles" img={UNM_Origin} />
+                    </div>
+                    <div className="flex-grow w-full flex flex-col sm:flex-row">
+                      <div className="w-full flex flex-col items-center sm:w-2/4">
+                        <InputUpdate description="Carrera" userInformation="carrera" />
+                        <InputUpdate description="Código Estudiante CNU" userInformation="lorem ipsum" />
+                        <InputUpdate description="Código Estudiante MINED" userInformation="00/00/0000" />
+                        <InputUpdate description="Modalidad" userInformation="lorem ipsum" />
+                        <InputUpdate description="Nombre Sede" userInformation="lorem ipsum" />
+                      </div>
+                      <div className="w-full flex flex-col items-center sm:w-2/4">
+                        <InputUpdate description="Número de Documento" userInformation="lorem ipsum" />
+                        <InputUpdate description="Opción" userInformation="lorem ipsum" />
+                        <InputUpdate description="Tipo de Identidad" userInformation="lorem ipsum" />
+                        <InputUpdate description="Turno" userInformation="lorem ipsum" />
+                      </div>
+                    </div>
+                    <div className="w-full h-auto my-6 flex items-center justify-center gap-4 sm:my-0">
+                      <button
+                        onClick={toggleContainer}
+                        className="bg-red-500 text-white px-4 py-2 rounded-md"
+                      >
+                        Cancelar
+                      </button>
+                      <button className="bg-green-500 text-white px-4 py-2 rounded-md">
+                        Guardar
+                      </button>
+                    </div>
+                  </div>
+                </article>
+              </section>
             </div>
-            <section className="w-full h-[90%] flex items-center justify-center">
-              <article className="w-full h-full scrollbar-custom flex flex-col overflow-auto scroll-smooth">
-                <div className="w-full h-[20%] flex">
-                  <PrincipalHeader title="Datos Personales" img={UNM_Origin} />
-                </div>
-                <div className="w-full h-[80%] flex flex-col">
-                  <div className="flex-grow w-full flex flex-col sm:flex-row">
-                    <div className="w-full flex flex-col items-center sm:w-2/4">
-                      <InputUpdate description="Correo" userInformation="lorem@gmail.com" />
-                      <InputUpdate description="Etnia" userInformation="lorem ipsum" />
-                      <InputUpdate description="Fecha de Nacimiento" userInformation="00/00/0000" />
-                      <InputUpdate description="Municipio" userInformation="lorem ipsum" />
-                      <InputUpdate description="Nacionalidad" userInformation="lorem ipsum" />
-                    </div>
-                    <div className="w-full flex flex-col items-center sm:w-2/4">
-                      <InputUpdate description="Nombre Completo" userInformation="lorem ipsum" />
-                      <InputUpdate description="País" userInformation="lorem ipsum" />
-                      <InputUpdate description="Procedencia" userInformation="lorem ipsum" />
-                      <InputUpdate description="Sexo" userInformation="lorem ipsum" />
-                      <InputUpdate description="Teléfono" userInformation="123456789" />
-                    </div>
-                  </div>
-                  <div className="w-full h-auto flex">
-                    <PrincipalHeader title="Datos Estudiantiles" img={UNM_Origin} />
-                  </div>
-                  <div className="flex-grow w-full flex flex-col sm:flex-row">
-                    <div className="w-full flex flex-col items-center sm:w-2/4">
-                      <InputUpdate description="Carrera" userInformation="carrera" />
-                      <InputUpdate description="Código Estudiante CNU" userInformation="lorem ipsum" />
-                      <InputUpdate description="Código Estudiante MINED" userInformation="00/00/0000" />
-                      <InputUpdate description="Modalidad" userInformation="lorem ipsum" />
-                      <InputUpdate description="Nombre Sede" userInformation="lorem ipsum" />
-                    </div>
-                    <div className="w-full flex flex-col items-center sm:w-2/4">
-                      <InputUpdate description="Número de Documento" userInformation="lorem ipsum" />
-                      <InputUpdate description="Opción" userInformation="lorem ipsum" />
-                      <InputUpdate description="Tipo de Identidad" userInformation="lorem ipsum" />
-                      <InputUpdate description="Turno" userInformation="lorem ipsum" />
-                    </div>
-                  </div>
-                  <div className="w-full h-auto my-6 flex items-center justify-center gap-4 sm:my-0">
-                    <button
-                      onClick={toggleContainer}
-                      className="bg-red-500 text-white px-4 py-2 rounded-md"
-                    >
-                      Cancelar
-                    </button>
-                    <button className="bg-green-500 text-white px-4 py-2 rounded-md">
-                      Guardar
-                    </button>
-                  </div>
-                </div>
-              </article>
-            </section>
           </>
         )}
       </section>

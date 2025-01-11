@@ -24,12 +24,12 @@ function Login() {
         <section className='w-full h-auto flex flex-col-reverse gap-8 py-20 sm:flex-row sm:gap-0 sm:py-0'>
             <Toggle top='top-0' bottom='left-0' />
             <article className='w-full h-auto flex items-center justify-center sm:w-2/4 sm:h-screen'>
-                <form className='w-3/4 h-96 animate__animated animate__fadeIn sm:w-2/4' action="">
+                <form className='w-3/4 h-96 animate__animated animate__fadeIn md:w-3/4 lg:w-3/5 xl:w-3/5 2xl:w-3/5' action="">
                     <div className='w-full h-full'>
                         <p className='text-center'>
-                            <span className='font-sans text-2xl font-semibold text-app-greenColor sm:text-4xl'>Sistema de Matricula</span><br />
-                            <span className='font-sans text-2xl font-semibold text-app-blueColor mr-2 sm:text-4xl'>Unificada</span>
-                            <span className='font-sans text-2xl font-semibold text-app-yellowColor sm:text-4xl'>UNMRMA</span><br />
+                            <span className='font-sans text-2xl font-semibold text-app-greenColor md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-4xl'>Sistema de Matricula</span><br />
+                            <span className='font-sans text-2xl font-semibold text-app-blueColor mr-2 md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-4xl'>Unificada</span>
+                            <span className='font-sans text-2xl font-semibold text-app-yellowColor md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-4xl'>UNMRMA</span><br />
                             <span className='font-sans text-base text-app-grayColor sm:text-base'>Iniciar Sesión</span>
                         </p>
                         <div className='w-full h-auto flex flex-col items-center justify-center gap-3 my-6'>
@@ -64,7 +64,7 @@ function Login() {
             </article>
 
             <article className='w-full h-auto flex items-center justify-center sm:w-2/4 sm:h-screen'>
-                <div className="w-[340px] h-[280px] bg-cover bg-center animate-slider sm:w-[624px] sm:h-[520px]"></div>
+                <div className="w-[340px] h-[280px] bg-cover bg-center animate-slider md:w-[420px] md:h-[350px] lg:w-[490px] lg:h-[410px] xl:w-[624px] xl:h-[520px] 2xl:w-[624px] 2xl:h-[520px]"></div>
             </article>
         </section>
     )

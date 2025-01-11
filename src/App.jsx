@@ -5,6 +5,7 @@ import './index.css'
 import Login from './pages/Login';
 import VirtualEnvironment from './pages/VirtualEnvironment';
 import Reingreso from './pages/Reingreso';
+import NoPage from './pages/NoPage';
 
 function App() {
   return (
@@ -12,9 +13,9 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="login" element={<Login />} />
-          <Route path="virtual_environment" element={<VirtualEnvironment/>} />
-          <Route path="reingreso" element={<Reingreso/>} />
-          {/* <Route path="*" element={<NoPage />} /> */}
+          <Route path="virtual_environment" element={<VirtualEnvironment />} />
+          <Route path="reingreso" element={<Reingreso />} />
+          <Route path="*" element={<NoPage />} />
         </Routes>
       </BrowserRouter>
     </>

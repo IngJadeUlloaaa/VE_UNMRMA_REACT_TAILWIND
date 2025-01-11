@@ -15,13 +15,14 @@ export default {
           greenColor: "#5AB24B",
           yellowColor: "#D5CD00",
           grayColor: "#808080",
-          redColor: "#FF0101",
-          whiteColor: "#ffffff"
+          redColor: "#FF0000",
+          whiteColor: "#ffffff",
         }
       },
       /* FONT FAMILY */
       fontFamily: {
         sans: ["Roboto", "sans-serif"],
+        rubik: ["Rubik Wet Paint", "serif;"],
       },
       /* ANIMATION */
       animation: {

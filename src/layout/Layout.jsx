@@ -16,6 +16,9 @@ function Layout() {
           <li>
             <Link to="/reingreso">Reingreso</Link>
           </li>
+          <li>
+            <Link to="/no_found">Page No Found</Link>
+          </li>
         </ul>
       </nav>
 

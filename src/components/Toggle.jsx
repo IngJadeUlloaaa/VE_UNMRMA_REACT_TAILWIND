@@ -5,7 +5,6 @@ import { useTheme, THEME_LIGHT } from "../hooks/useTheme.hook";
 
 function Toggle({ top = "", right = "", bottom = "", left = "" }) {
   const [themeMode, toggleTheme] = useTheme();
-  console.log(themeMode);
 
   return (
     <button
