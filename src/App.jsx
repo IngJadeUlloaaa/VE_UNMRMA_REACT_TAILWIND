@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './index.css'
 import Login from './pages/Login';
 import VirtualEnvironment from './pages/VirtualEnvironment';
+import Reingreso from './pages/Reingreso';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Routes>
           <Route path="login" element={<Login />} />
           <Route path="virtual_environment" element={<VirtualEnvironment/>} />
+          <Route path="reingreso" element={<Reingreso/>} />
           {/* <Route path="*" element={<NoPage />} /> */}
         </Routes>
       </BrowserRouter>

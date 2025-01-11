@@ -13,6 +13,9 @@ function Layout() {
           <li>
             <Link to="/virtual_environment">Entorno Virtual UNMRMA</Link>
           </li>
+          <li>
+            <Link to="/reingreso">Reingreso</Link>
+          </li>
         </ul>
       </nav>
 
