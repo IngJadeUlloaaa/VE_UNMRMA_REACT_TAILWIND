@@ -74,7 +74,7 @@ function Login() {
                                     className="w-full bg-transparent focus:outline-none font-sans text-sm text-app-grayColor dark:text-app-whiteColor"
                                     id='userPasswd'
                                     type="password"
-                                    placeholder="Temporarily Blocked"
+                                    placeholder="Bloqueado Temporalmente"
                                     readOnly
                                 />
                             </div>
