@@ -1,12 +1,16 @@
 import React, { useState, lazy, Suspense } from 'react';
 import '../index.css';
 import Navbar from '../components/Navbar';
+import { useGetStudent } from '../clients/api_clients';
+import Cookies from 'js-cookie';
 
 const Home = lazy(() => import("../components/Home"));
 const Profile = lazy(() => import("../components/Profile"));
 
 function VirtualEnvironment() {
   const [activeView, setActiveView] = useState('home');
+
+  const { data: student } = useGetStudent(Cookies.get('studentCode'));
 
   return (
     <>

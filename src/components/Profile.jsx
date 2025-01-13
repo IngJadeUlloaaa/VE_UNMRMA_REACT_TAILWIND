@@ -6,17 +6,6 @@ import Button from './Button';
 import PrincipalHeader from './PrincipalHeader';
 import InputUpdate from './InputUpdate';
 import DropDown from './DropDown';
-import UserEmailInput from './InputUpdateGet/UserEmailInput';
-import UserBirthDate from './InputUpdateGet/UserBirthDate';
-import UserNames from './InputUpdateGet/UserNames';
-import UserPais from './InputUpdateGet/UserPais';
-import UserProcedencia from './InputUpdateGet/UserProcedencia';
-import UserSexo from './InputUpdateGet/UserSexo';
-import UserCodigoCNU from './InputUpdateGet/UserCodigoCNU';
-import UserCellphone from './InputUpdateGet/UserCellphone';
-import UserCarrera from './InputUpdateGet/UserCarrera';
-import UserCodigoMINED from './InputUpdateGet/UserCodigoMINED';
-import UserNombreSede from './InputUpdateGet/UserNombreSede';
 
 function Profile() {
   const [visible, setVisible] = useState(false);
