@@ -6,6 +6,17 @@ import Button from './Button';
 import PrincipalHeader from './PrincipalHeader';
 import InputUpdate from './InputUpdate';
 import DropDown from './DropDown';
+import UserEmailInput from './InputUpdateGet/UserEmailInput';
+import UserBirthDate from './InputUpdateGet/UserBirthDate';
+import UserNames from './InputUpdateGet/UserNames';
+import UserPais from './InputUpdateGet/UserPais';
+import UserProcedencia from './InputUpdateGet/UserProcedencia';
+import UserSexo from './InputUpdateGet/UserSexo';
+import UserCodigoCNU from './InputUpdateGet/UserCodigoCNU';
+import UserCellphone from './InputUpdateGet/UserCellphone';
+import UserCarrera from './InputUpdateGet/UserCarrera';
+import UserCodigoMINED from './InputUpdateGet/UserCodigoMINED';
+import UserNombreSede from './InputUpdateGet/UserNombreSede';
 
 function Profile() {
   const [visible, setVisible] = useState(false);
@@ -30,14 +41,14 @@ function Profile() {
                 <div className="w-full h-auto flex flex-col">
                   <div className="w-full h-auto flex flex-col sm:flex-row">
                     <div className="w-full h-auto flex flex-col items-center sm:w-2/4">
-                      <Input data="Carrera" api_data="Temporarily Blocked" />
-                      <Input data="Cedula" api_data="Temporarily Blocked" />
-                      <Input data="Telefono" api_data="Temporarily Blocked" />
+                      <Input data="Carrera" api_data="Bloqueado Temporalmente" />
+                      <Input data="Cedula" api_data="Bloqueado Temporalmente" />
+                      <Input data="Telefono" api_data="Bloqueado Temporalmente" />
                     </div>
                     <div className="w-full h-auto flex flex-col items-center sm:w-2/4">
-                      <Input data="Turno" api_data="Temporarily Blocked" />
-                      <Input data="Nombre Completo" api_data="Temporarily Blocked" />
-                      <Input data="Correo" api_data="Temporarily Blocked" />
+                      <Input data="Turno" api_data="Bloqueado Temporalmente" />
+                      <Input data="Nombre Completo" api_data="Bloqueado Temporalmente" />
+                      <Input data="Correo" api_data="Bloqueado Temporalmente" />
                     </div>
                   </div>
                   <div className="w-full h-auto text-center my-12">
@@ -61,18 +72,18 @@ function Profile() {
                   <div className="w-full h-[80%] flex flex-col">
                     <div className="flex-grow w-full flex flex-col sm:flex-row">
                       <div className="w-full flex flex-col items-center sm:w-2/4">
-                        <InputUpdate description="Correo" userInformation="lorem@gmail.com" />
+                        <UserEmailInput />
                         <DropDown description="Etnia" value="Managua" />
-                        <InputUpdate description="Fecha de Nacimiento" userInformation="00/00/0000" />
+                        <UserBirthDate />
                         <DropDown description="Municipio" value="Managua" />
                         <DropDown description="Nacionalidad" value="Nicaraguence" />
                       </div>
                       <div className="w-full flex flex-col items-center sm:w-2/4">
-                        <InputUpdate description="Nombre Completo" userInformation="lorem ipsum" />
-                        <InputUpdate description="Pais" userInformation="lorem ipsum" />
-                        <InputUpdate description="Procedencia" userInformation="lorem ipsum" />
-                        <InputUpdate description="Sexo" userInformation="lorem ipsum" />
-                        <InputUpdate description="Teléfono" userInformation="123456789" />
+                        <UserNames />
+                        <UserPais />
+                        <UserProcedencia />
+                        <UserSexo />
+                        <UserCellphone />
                       </div>
                     </div>
                     <div className="w-full h-auto flex">
@@ -80,17 +91,17 @@ function Profile() {
                     </div>
                     <div className="flex-grow w-full flex flex-col sm:flex-row">
                       <div className="w-full flex flex-col items-center sm:w-2/4">
-                        <InputUpdate description="Carrera" userInformation="lorem ipsum" />
-                        <InputUpdate description="Código Estudiante CNU" userInformation="lorem ipsum" />
-                        <InputUpdate description="Código Estudiante MINED" userInformation="00/00/0000" />
-                        <InputUpdate description="Modalidad" userInformation="lorem ipsum" />
-                        <InputUpdate description="Nombre Sede" userInformation="lorem ipsum" />
+                        <UserCarrera />
+                        <UserCodigoCNU />
+                        <UserCodigoMINED />
+                        <InputUpdate description="Modalidad" userInformation="Bloqueado Temporalmente" bool={true}/>
+                        <UserNombreSede />
                       </div>
                       <div className="w-full flex flex-col items-center sm:w-2/4">
-                        <InputUpdate description="Número de Documento" userInformation="lorem ipsum" />
-                        <InputUpdate description="Opcion" userInformation="lorem ipsum" />
-                        <InputUpdate description="Tipo de Identidad" userInformation="lorem ipsum" />
-                        <InputUpdate description="Turno" userInformation="lorem ipsum" />
+                        <InputUpdate description="Número de Documento" userInformation="Bloqueado Temporalmente" bool={true}/>
+                        <InputUpdate description="Opcion" userInformation="Bloqueado Temporalmente" bool={true}/>
+                        <InputUpdate description="Tipo de Identidad" userInformation="Bloqueado Temporalmente" bool={true}/>
+                        <InputUpdate description="Turno" userInformation="Bloqueado Temporalmente" bool={true}/>
                       </div>
                     </div>
                     <div className="w-full h-auto my-6 flex items-center justify-center gap-4 sm:my-0">

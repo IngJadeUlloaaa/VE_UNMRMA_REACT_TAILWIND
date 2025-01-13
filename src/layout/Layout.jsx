@@ -13,9 +13,11 @@ function Layout() {
           <li>
             <Link to="/virtual_environment">Entorno Virtual UNMRMA</Link>
           </li>
+          {/* 
           <li>
             <Link to="/reingreso">Reingreso</Link>
           </li>
+          */}
           <li>
             <Link to="/no_found">Page No Found</Link>
           </li>

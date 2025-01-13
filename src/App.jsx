@@ -4,14 +4,13 @@ import './index.css';
 import Login from './pages/Login';
 import VirtualEnvironment from './pages/VirtualEnvironment';
 import ProtectedRoute from './components/ProtectedRoute';
-import Reingreso from './pages/Reingreso';
 import NoPage from './pages/NoPage';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route index element={<Navigate to="/login"/>}/>
+        <Route index element={<Navigate to="/login" />} />
         <Route path="/login" element={<Login />} />
         <Route
           path="/virtual_environment"

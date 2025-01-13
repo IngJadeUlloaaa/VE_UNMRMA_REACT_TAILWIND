@@ -9,39 +9,43 @@ import Cookies from 'js-cookie';
 
 function Login() {
     const [clicks, setClicks] = useState(0);
+    const [studentCode, setStudentCode] = useState('');
+    const navigate = useNavigate();
+
     const manejarClick = () => {
-        setClicks(prevClicks => {
+        setClicks((prevClicks) => {
             const nuevosClicks = prevClicks + 1;
             if (nuevosClicks === 10) {
-                alert('This FrontEnt was created by Engineer Carlos Ulloa!\nLet me create your website Contact me! ulloacarlos3112@gmail.com');
+                alert('This FrontEnd was created by Engineer Carlos Ulloa!\nLet me create your website Contact me! ulloacarlos3112@gmail.com');
             }
             return nuevosClicks;
         });
-    }
+    };
 
-    const navigate = useNavigate();
+    const handleInputChange = (e) => {
+        setStudentCode(e.target.value);
+    };
 
-    const handleLogin = async (e) => {
+    const handleLogin = (e) => {
         e.preventDefault();
-        const studentCode = document.getElementById('student_code').value;
+
+        if (!studentCode.trim()) {
+            alert('Por favor, ingrese un código Mined válido.');
+            return;
+        }
 
         try {
-            const response = await fetch('https://192.168.23.248:4500/auth/login', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ student_code: studentCode }),
+            // Guardar el código Mined en una cookie
+            Cookies.set('studentCode', studentCode.trim(), {
+                secure: true,
+                sameSite: 'strict',
             });
 
-            if (!response.ok) throw new Error('Invalid Credentials');
-            const data = await response.json();
-
-            // Guardar el token en una cookie
-            Cookies.set('authToken', data.token, { secure: true, sameSite: 'strict' });
-
-            // Redirigir a virtual_environment con replace
+            // Redirigir a la siguiente vista
             navigate('/virtual_environment', { replace: true });
         } catch (error) {
-            alert(error.message);
+            console.error('Error al guardar el código Mined:', error);
+            alert('Ocurrió un error al intentar guardar los datos. Inténtelo de nuevo.');
         }
     };
 
@@ -62,7 +66,8 @@ function Login() {
                                 <FaUser className="text-app-greenColor mr-3" />
                                 <input
                                     className="w-full bg-transparent focus:outline-none font-sans text-sm text-app-grayColor dark:text-app-whiteColor"
-                                    id='student_code'
+                                    value={studentCode}
+                                    onChange={handleInputChange}
                                     type="text"
                                     placeholder="Código Mined"
                                     required
