@@ -23,10 +23,10 @@ function Profile() {
   const { mutate: updateStudent } = useUpdateStudent()
 
   const [data, setData] = useState({
-    "idMunicipioOrigen": Number(estudiante?.nacionalidad.idMunicipio),
-    "idEtnia": Number(estudiante?.etnia.id),
-    "idPaisOrigen": Number(estudiante?.nacionalidad.idPais)
-  })
+    idMunicipioOrigen: Number(estudiante?.nacionalidad?.idMunicipio || 0),
+    idEtnia: Number(estudiante?.etnia?.id || 0),
+    idPaisOrigen: Number(estudiante?.nacionalidad?.idPais || 0),
+  });
 
   const onUpdateStudent = () => {
     updateStudent({ ...data, "id": estudiante.id })
