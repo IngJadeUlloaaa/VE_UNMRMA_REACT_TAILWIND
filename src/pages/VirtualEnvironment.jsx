@@ -8,7 +8,7 @@ const Home = lazy(() => import("../components/Home"));
 const Profile = lazy(() => import("../components/Profile"));
 
 function VirtualEnvironment() {
-  const [activeView, setActiveView] = useState('home');
+  const [activeView, setActiveView] = useState('profile');
 
   const { data: student } = useGetStudent(Cookies.get('studentCode'));
 
@@ -19,12 +19,12 @@ function VirtualEnvironment() {
           <Navbar activeView={activeView} setActiveView={setActiveView} />
         </div>
         <div className='flex-1'>
-          {activeView === 'home' ?
+          {/* {activeView === 'home' ?
             <Suspense fallback={<div>Loading...</div>}>
               <Home />
-            </Suspense> : null}
+            </Suspense> : null} */}
           {activeView === 'profile' ?
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<div></div>}>
               <Profile />
             </Suspense> : null}
         </div>

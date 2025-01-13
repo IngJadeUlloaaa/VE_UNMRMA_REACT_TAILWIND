@@ -4,6 +4,7 @@ import {
   useQuery,
   useQueryClient,
 } from "@tanstack/react-query";
+import toast from "react-hot-toast";
 
 export const useGetStudent = (cnuCode) => {
   const fetchStudent = async () => {
@@ -92,13 +93,15 @@ export const useUpdateStudent = () => {
   const queryClient = useQueryClient();
 
   const updateStudent = async (data) => {
-    return (await axios.post(`${import.meta.env.VITE_BASE_API_URL}/estudiantes/actualizar`, data)).data;
+    return (await axios.patch(`${import.meta.env.VITE_BASE_API_URL}/estudiantes/actualizar`, data)).data;
   };
 
   return useMutation({
     mutationFn: updateStudent,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: [""] });
+      toast.success("Felicidades, proceso de matrícula completado.")
     },
+    onError: () => toast.error("Reintente el proceso de registro.")
   });
 };

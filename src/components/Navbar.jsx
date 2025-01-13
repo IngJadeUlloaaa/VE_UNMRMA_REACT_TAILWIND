@@ -35,14 +35,14 @@ function Navbar({ activeView, setActiveView }) {
         </div>
         <div className='w-full flex items-center justify-center'>
           <ul className='w-[90%] flex flex-col items-start gap-2'>
-            <li
+            {/* <li
               className={`w-full flex items-center p-3 rounded-xl ${activeView === 'home' ? 'bg-app-yellowColor text-app-blueColor' : 'text-app-whiteColor'
                 } hover:bg-app-yellowColor hover:shadow-sm hover:shadow-yellow-500/50`}
               onClick={() => setActiveView('home')}
             >
               <FaHome className='font-sans text-lg font-semibold mx-1.5' />
               Home
-            </li>
+            </li> */}
             <li
               className={`w-full flex items-center p-3 rounded-xl ${activeView === 'profile' ? 'bg-app-yellowColor text-app-blueColor' : 'text-app-whiteColor'
                 } hover:bg-app-yellowColor hover:shadow-sm hover:shadow-yellow-500/50`}

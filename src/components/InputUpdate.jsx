@@ -1,21 +1,13 @@
-import React from 'react';
+import React from 'react'
 
-function InputUpdate({ description, userInformation, bool }) {
+function InputUpdate({ name, bool }) {
     return (
-        <div className='w-3/4 h-auto my-2'>
-            <p className='w-full h-auto'>
-                <span className='text-start text-app-grayColor dark:text-app-whiteColor font-sans text-sm font-semibold'>
-                    {description}
-                </span>
-            </p>
-            <input
-                className='w-full bg-transparent shadow-lg text-app-grayColor font-sans text-base font-semibold rounded-xl border-4 border-app-blueColor px-3 py-3 focus:outline-none'
-                type="text"
-                placeholder={userInformation}
-                readOnly={bool}
-            />
-        </div>
-    );
+        <>
+            <div className='w-9/12 h-auto flex gap-4'>
+                <input className='w-full bg-transparent shadow-lg text-app-grayColor font-sans text-base font-semibold rounded-xl border-4 border-app-blueColor px-3 py-3 focus:outline-none' type="text" placeholder={name} readOnly={bool} />
+            </div>
+        </>
+    )
 }
 
-export default InputUpdate;
+export default InputUpdate

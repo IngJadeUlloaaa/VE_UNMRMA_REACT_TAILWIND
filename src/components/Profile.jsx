@@ -1,11 +1,12 @@
-import { useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import BoxTitle from './BoxTitle';
 import UNM_Origin from '../assets/images/unm_origin_shield.webp';
-import Input from './Input';
-import Button from './Button';
-import PrincipalHeader from './PrincipalHeader';
-import InputUpdate from './InputUpdate';
-import DropDown from './DropDown';
+import Input from '../components/Input';
+import Button from '../components/Button';
+import PrincipalHeader from '../components/PrincipalHeader';
+import DropDown from '../components/DropDown';
+import Cookies from 'js-cookie';
+import { useGetCountries, useGetEthnicities, useGetMunicipalities, useGetStudent, useGetStudentDetails, useUpdateStudent } from '../clients/api_clients';
 
 function Profile() {
   const [visible, setVisible] = useState(false);
@@ -13,6 +14,37 @@ function Profile() {
   const toggleContainer = () => {
     setVisible(!visible);
   };
+
+  const { data: etnias } = useGetEthnicities()
+  const { data: paises } = useGetCountries()
+  const { data: municipios } = useGetMunicipalities()
+  const { data: estudiante } = useGetStudent(Cookies.get('studentCode'))
+  const { data: estudianteDetalle } = useGetStudentDetails(Cookies.get('studentCode'))
+  const { mutate: updateStudent } = useUpdateStudent()
+
+  const [data, setData] = useState({
+    "idMunicipioOrigen": Number(estudiante?.nacionalidad.idMunicipio),
+    "idEtnia": Number(estudiante?.etnia.id),
+    "idPaisOrigen": Number(estudiante?.nacionalidad.idPais)
+  })
+
+  const onUpdateStudent = () => {
+    updateStudent({ ...data, "id": estudiante.id })
+  }
+
+  const onChangeMunicipio = (e) => {
+    setData((prev) => ({ ...prev, "idMunicipioOrigen": Number(e?.target.value) }))
+  }
+
+  const onChangePais = (e) => {
+    setData((prev) => ({ ...prev, "idPaisOrigen": Number(e?.target.value) }))
+  }
+
+  const onChangeEtnia = (e) => {
+    setData((prev) => ({ ...prev, "idEtnia": Number(e?.target.value) }))
+  }
+
+
 
   return (
     <>
@@ -30,13 +62,13 @@ function Profile() {
                 <div className="w-full h-auto flex flex-col">
                   <div className="w-full h-auto flex flex-col sm:flex-row">
                     <div className="w-full h-auto flex flex-col items-center sm:w-2/4">
-                      <Input data="Carrera" api_data="Bloqueado Temporalmente" />
-                      <Input data="Cedula" api_data="Bloqueado Temporalmente" />
-                      <Input data="Telefono" api_data="Bloqueado Temporalmente" />
+                      <Input data="Nombre" api_data={estudiante.nombres} />
+                      <Input data="Apellido" api_data={estudiante.apellidos} />
+                      <Input data="Cedula" api_data={estudiante.numeroIdentidad} />
                     </div>
                     <div className="w-full h-auto flex flex-col items-center sm:w-2/4">
-                      <Input data="Turno" api_data="Bloqueado Temporalmente" />
-                      <Input data="Nombre Completo" api_data="Bloqueado Temporalmente" />
+                      <Input data="Codigo CNU" api_data={estudiante.codigoCNU} />
+                      <Input data="Año Ingreso" api_data={estudiante.anioIngresoCarrera} />
                       <Input data="Correo" api_data="Bloqueado Temporalmente" />
                     </div>
                   </div>
@@ -60,37 +92,12 @@ function Profile() {
                   </div>
                   <div className="w-full h-[80%] flex flex-col">
                     <div className="flex-grow w-full flex flex-col sm:flex-row">
-                      <div className="w-full flex flex-col items-center sm:w-2/4">
-                        <UserEmailInput />
-                        <DropDown description="Etnia" value="Managua" />
-                        <UserBirthDate />
-                        <DropDown description="Municipio" value="Managua" />
-                        <DropDown description="Nacionalidad" value="Nicaraguence" />
+                      <div className="w-full flex flex-col items-center gap-4 sm:w-2/4">
+                        <DropDown onChange={onChangeMunicipio} description="Municipio" options={municipios} defaultValue={estudiante?.municipios?.idMunicipio} />
                       </div>
                       <div className="w-full flex flex-col items-center sm:w-2/4">
-                        <UserNames />
-                        <UserPais />
-                        <UserProcedencia />
-                        <UserSexo />
-                        <UserCellphone />
-                      </div>
-                    </div>
-                    <div className="w-full h-auto flex">
-                      <PrincipalHeader title="Datos Estudiantiles" img={UNM_Origin} />
-                    </div>
-                    <div className="flex-grow w-full flex flex-col sm:flex-row">
-                      <div className="w-full flex flex-col items-center sm:w-2/4">
-                        <UserCarrera />
-                        <UserCodigoCNU />
-                        <UserCodigoMINED />
-                        <InputUpdate description="Modalidad" userInformation="Bloqueado Temporalmente" bool={true}/>
-                        <UserNombreSede />
-                      </div>
-                      <div className="w-full flex flex-col items-center sm:w-2/4">
-                        <InputUpdate description="Número de Documento" userInformation="Bloqueado Temporalmente" bool={true}/>
-                        <InputUpdate description="Opcion" userInformation="Bloqueado Temporalmente" bool={true}/>
-                        <InputUpdate description="Tipo de Identidad" userInformation="Bloqueado Temporalmente" bool={true}/>
-                        <InputUpdate description="Turno" userInformation="Bloqueado Temporalmente" bool={true}/>
+                        <DropDown onChange={onChangeEtnia} description="Etnia" options={etnias} defaultValue={estudiante?.etnia?.id} />
+                        <DropDown onChange={onChangePais} description="Nacionalidad" options={paises} defaultValue={estudiante?.nacionalidad?.idPais} />
                       </div>
                     </div>
                     <div className="w-full h-auto my-6 flex items-center justify-center gap-4 sm:my-0">
@@ -100,7 +107,7 @@ function Profile() {
                       >
                         Cancelar
                       </button>
-                      <button className="bg-green-500 text-white px-4 py-2 rounded-md">
+                      <button onClick={onUpdateStudent} className="bg-green-500 text-white px-4 py-2 rounded-md">
                         Guardar
                       </button>
                     </div>
