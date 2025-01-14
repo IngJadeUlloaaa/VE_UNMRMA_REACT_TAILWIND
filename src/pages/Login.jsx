@@ -5,7 +5,7 @@ import '../index.css';
 import { FaUser, FaLock } from 'react-icons/fa';
 import Toggle from '../components/Toggle';
 import { useNavigate } from 'react-router-dom';
-import Cookies from 'js-cookie';
+import toast from 'react-hot-toast';
 
 function Login() {
     const [clicks, setClicks] = useState(0);
@@ -30,16 +30,11 @@ function Login() {
         e.preventDefault();
 
         if (!studentCode.trim()) {
-            alert('Por favor, ingrese un código Mined válido.');
+            toast.error('Por favor, ingrese un código Mined válido.');
             return;
         }
 
         try {
-            // Guardar el código Mined en una cookie
-            // Cookies.set('studentCode', studentCode.trim(), {
-                // secure: true,
-                // sameSite: "Strict"
-            // });
             window.localStorage.setItem("CNU", studentCode);
 
             // Redirigir a la siguiente vista
@@ -74,17 +69,6 @@ function Login() {
                                     required
                                 />
                             </div>
-                            {/* <div className="w-full flex items-center border-app-yellowColor border-4 p-3 rounded-xl">
-                                <FaLock className="text-app-greenColor mr-3" />
-                                <input
-                                    className="w-full bg-transparent focus:outline-none font-sans text-sm text-app-grayColor dark:text-app-whiteColor"
-                                    id='userPasswd'
-                                    type="password"
-                                    placeholder="Bloqueado Temporalmente"
-                                    readOnly
-                                />
-                            </div> */}
-
                         <div className='text-center w-full'>
                             <button onClick={handleLogin} className='w-full font-sans text-sm font-semibold text-app-grayColor border-app-yellowColor border-4 p-2 rounded-xl'>Entrar</button>
                         </div>
