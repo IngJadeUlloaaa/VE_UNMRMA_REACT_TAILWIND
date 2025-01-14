@@ -13,7 +13,7 @@ import {
   useGetStudentDetails,
   useUpdateStudent
 } from '../clients/api_clients';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Profile() {
   const [visible, setVisible] = useState(false);
@@ -36,9 +36,15 @@ function Profile() {
       navigate("/login")
     }
     setData({
+      nombres: estudiante?.nombres,
+      apellido1: estudiante?.apellidos.split(" ")?.at(0),
+      apellido2: estudiante?.apellidos.split(" ")?.at(1),
+      numeroIdentidad: estudiante?.numeroIdentidad,
       idMunicipioOrigen: Number(estudiante?.nacionalidad?.idMunicipio),
       idEtnia: Number(estudiante?.etnia?.id),
       idPaisOrigen: Number(estudiante?.nacionalidad?.idPais),
+      correos: [],
+      telefonos: []
     });
 
   }, [
@@ -55,16 +61,16 @@ function Profile() {
     updateStudent({ ...data, "id": Number(estudiante.id) })
   }
 
-  const onChangeMunicipio = (e) => {
-    setData((prev) => ({ ...prev, "idMunicipioOrigen": Number(e?.target.defaultValue) }))
+  const onChangeData = (e, key) => {
+    if (isNaN(Number(e?.target.value))) {
+      setData((prev) => ({ ...prev, [key]: e?.target.value }))
+    } else {
+      setData((prev) => ({ ...prev, [key]: Number(e?.target.value) }))
+    }
   }
 
-  const onChangePais = (e) => {
-    setData((prev) => ({ ...prev, "idPaisOrigen": Number(e?.target.defaultValue) }))
-  }
-
-  const onChangeEtnia = (e) => {
-    setData((prev) => ({ ...prev, "idEtnia": Number(e?.target.defaultValue) }))
+  const onChangeMetadata = (e, key) => {
+    setData((prev) => ({ ...prev, [key]: [e?.target.value] }))
   }
 
   return (
@@ -85,7 +91,7 @@ function Profile() {
                     <div className='w-full flex flex-col items-center lg:items-start lg:w-[50%] lg:static px-2'>
                       <Input data="Nombre" defaultValue={estudiante?.nombres} readOnly />
                       <Input data="Apellido" defaultValue={estudiante?.apellidos} readOnly />
-                      <Input data="Cedula" defaultValue={estudiante?.numeroIdentidad} readOnly />
+                      <Input data="Cédula" defaultValue={estudiante?.numeroIdentidad} readOnly />
                       <Input data="Codigo CNU" defaultValue={estudiante?.codigoCNU} readOnly />
                       <Input data="Año Ingreso" defaultValue={estudiante?.anioIngresoCarrera} readOnly />
                     </div>
@@ -131,11 +137,21 @@ function Profile() {
                     <div className="w-full h-[80%] flex flex-col">
                       <div className="flex-grow w-full flex flex-col sm:flex-row">
                         <div className="w-full flex flex-col items-center gap-4 sm:w-2/4">
-                          <DropDown onChange={onChangeMunicipio} description="Municipio" options={municipios} defaultValue={estudiante?.nacionalidad?.idMunicipio} />
+                          <DropDown onChange={(e) => onChangeData(e, "idMunicipioOrigen")} description="Municipio" options={municipios} defaultValue={estudiante?.nacionalidad?.idMunicipio} />
+                          <DropDown onChange={(e) => onChangeData(e, "idEtnia")} description="Etnia" options={etnias} defaultValue={estudiante?.etnia?.id} />
+                          <DropDown onChange={(e) => onChangeData(e, "idPaisOrigen")} description="Nacionalidad" options={paises} defaultValue={estudiante?.nacionalidad?.idPais} />
+                          <div className="w-3/4 h-auto my-2">
+                            <Input onChange={(e) => onChangeData(e, "numeroIdentidad")} data="Cédula" defaultValue={estudiante?.numeroIdentidad} />
+                          </div>
                         </div>
                         <div className="w-full flex flex-col items-center sm:w-2/4">
-                          <DropDown onChange={onChangeEtnia} description="Etnia" options={etnias} defaultValue={estudiante?.etnia?.id} />
-                          <DropDown onChange={onChangePais} description="Nacionalidad" options={paises} defaultValue={estudiante?.nacionalidad?.idPais} />
+                          <div className="w-3/4 h-auto my-2">
+                            <Input data="Nombre" defaultValue={estudiante?.nombres} onChange={(e) => onChangeData(e, "nombres")} />
+                            <Input data="Primer apellido" defaultValue={estudiante?.apellidos.split(" ")?.at(0)} onChange={(e) => onChangeData(e, "apellido1")} />
+                            <Input data="Segundo apellido" defaultValue={estudiante?.apellidos.split(" ")?.at(1)} onChange={(e) => onChangeData(e, "apellido2")} />
+                            <Input data="Teléfono (opcional)" onChange={(e) => onChangeMetadata(e, "telefonos")} />
+                            <Input data="Correo (opcional)" onChange={(e) => onChangeMetadata(e, "correos")} />
+                          </div>
                         </div>
                       </div>
                       <div className="w-full h-auto my-4 flex items-center justify-center gap-4 sm:my-0">
