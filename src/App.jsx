@@ -5,10 +5,12 @@ import Login from './pages/Login';
 import VirtualEnvironment from './pages/VirtualEnvironment';
 import ProtectedRoute from './components/ProtectedRoute';
 import NoPage from './pages/NoPage';
+import { Toaster } from 'react-hot-toast';
 
 function App() {
   return (
     <BrowserRouter>
+      <Toaster position='top-right'/>
       <Routes>
         <Route index element={<Navigate to="/login" />} />
         <Route path="/login" element={<Login />} />

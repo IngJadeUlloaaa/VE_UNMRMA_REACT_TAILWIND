@@ -10,8 +10,6 @@ const Profile = lazy(() => import("../components/Profile"));
 function VirtualEnvironment() {
   const [activeView, setActiveView] = useState('profile');
 
-  const { data: student } = useGetStudent(Cookies.get('studentCode'));
-
   return (
     <>
       <div className='flex'>
