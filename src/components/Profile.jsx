@@ -104,9 +104,9 @@ function Profile() {
                 </div>
                 <div className="w-full h-auto flex-col px-5 flex flex-wrap items-center lg:items-start justify-between lg:px-10 lg:flex-row">
                   <div className='w-full flex flex-col items-center lg:items-start lg:w-[50%] lg:static px-2'>
-                    <Input data="Nombre" defaultValue={estudiante?.nombres} />
-                    <Input data="Apellido" defaultValue={estudiante?.apellidos} />
-                    <Input data="Cedula" defaultValue={estudiante?.numeroIdentidad} />
+                    <Input data="Nombre" defaultValue={estudiante?.nombres} readOnly/>
+                    <Input data="Apellido" defaultValue={estudiante?.apellidos} readOnly/>
+                    <Input data="Cedula" defaultValue={estudiante?.numeroIdentidad} readOnly/>
                     <Input data="Codigo CNU" defaultValue={estudiante?.codigoCNU} readOnly />
                     <Input data="Año Ingreso" defaultValue={estudiante?.anioIngresoCarrera} readOnly />
                   </div>
