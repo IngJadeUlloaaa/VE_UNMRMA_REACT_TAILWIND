@@ -70,35 +70,6 @@ function Profile() {
             </div>
             <section className="w-full h-full flex items-center justify-center">
               <article className="w-[90%] h-auto flex flex-col items-center justify-center shadow-2xl dark:shadow-2xl dark:shadow-green-900 sm:h-[90%]">
-                {/* <div className="w-full h-auto my-4 flex sm:my-0">
-                  <PrincipalHeader title="Información del Estudiante" img={UNM_Origin} />
-                </div>
-                <div className="w-full h-auto flex flex-col">
-                  <div className="w-full h-auto flex flex-col sm:flex-row">
-                    <div className="w-full h-auto flex flex-col items-center sm:w-2/4">
-                      <Input data="Nombre" defaultValue={estudiante?.nombres} />
-                      <Input data="Apellido" defaultValue={estudiante?.apellidos} />
-                      <Input data="Cedula" defaultValue={estudiante?.numeroIdentidad} />
-                    </div>
-
-                    <div className="w-full h-auto flex flex-col items-center sm:w-2/4">
-                      <Input data="Codigo CNU" defaultValue={estudiante?.codigoCNU} />
-                      <Input data="Año Ingreso" defaultValue={estudiante?.anioIngresoCarrera} />
-                    </div>
-                  </div>
-                </div>
-                <div className='w-full flex'>
-                  {estudianteDetalle?.correos ?
-                    <ul className='w-full px-16'>
-                      {estudianteDetalle?.correos.map((c, index) =>
-                        <li key={c} className='w-full'>
-                          <Input data={`Correo ${index + 1}`} defaultValue={c} />
-                        </li>)}
-
-                    </ul>
-                    : null}
-                </div> */}
-
                 <div className="w-full h-auto my-4 flex sm:my-0">
                   <PrincipalHeader title="Información del Estudiante" img={UNM_Origin} />
                 </div>
